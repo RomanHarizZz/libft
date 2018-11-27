@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstolten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/24 01:13:36 by hstolten          #+#    #+#             */
-/*   Updated: 2018/11/20 06:49:13 by hstolten         ###   ########.fr       */
+/*   Created: 2018/11/20 06:56:50 by hstolten          #+#    #+#             */
+/*   Updated: 2018/11/20 07:37:17 by hstolten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+void	ft_bzero(void *s, size_t n)
 {
-	int value;
-	int sign;
+	size_t	i;
 
-	value = 0;
-	sign = 1;
-	while (*str == '\n' || *str == ' ' || *str == '\t' || *str == '\r' ||\
-	*str == '\v' || *str == '\f')\
+	i = 0;
+	while (i < n)
 	{
-		++str;
+		((char *)s)[i] = 0;
+		i++;
 	}
-	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-			sign = 0;
-		str++;
-	}
-	while ((*str) >= '0' && (*str) <= '9')
-	{
-		value *= 10;
-		value = (sign ? value + (*str - '0') : value - (*str - '0'));
-		str++;
-	}
-	return (value);
 }

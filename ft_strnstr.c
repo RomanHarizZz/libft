@@ -14,9 +14,11 @@
 
 char	*ft_strnstr(char *str, char *to_find, size_t len)
 {
-	unsigned int pos;
-	unsigned int i;
+	size_t pos;
+	size_t i;
 
+	if (!ft_strlen(to_find))
+		return ((char *)str);
 	if (!to_find)
 		return (str);
 	pos = 0;
@@ -28,7 +30,7 @@ char	*ft_strnstr(char *str, char *to_find, size_t len)
 			while (to_find[i] != '\0' && str[pos + i] == to_find[i])
 				++i;
 			if (to_find[i] == '\0')
-				return (&str[pos]);
+				return ((char *)&str[pos]);
 		}
 		++pos;
 	}

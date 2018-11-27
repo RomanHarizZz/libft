@@ -15,9 +15,11 @@ char	*ft_strstr(char *str, char *to_find)
 {
 	unsigned int pos;
 	unsigned int i;
+	if (!ft_strlen(to_find))
+		return ((char *)str);
+	if (!to_find && !str)
+		return ((char *)str);
 
-	if (!to_find)
-		return (str);
 	pos = 0;
 	while (str[pos] != '\0')
 	{
