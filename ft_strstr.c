@@ -11,10 +11,13 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strstr(const char *str,const char *to_find)
 {
-	unsigned int pos;
-	unsigned int i;
+	size_t pos;
+	size_t i;
+	//char *str2;
+
+	//str2 = str;
 	if (!ft_strlen(to_find))
 		return ((char *)str);
 	if (!to_find && !str)
@@ -29,7 +32,7 @@ char	*ft_strstr(char *str, char *to_find)
 			while (to_find[i] != '\0' && str[pos + i] == to_find[i])
 				++i;
 			if (to_find[i] == '\0')
-				return (&str[pos]);
+				return ((char *)&str[pos]);
 		}
 		++pos;
 	}

@@ -64,6 +64,14 @@ FILES		= ft_memset.c \
 				ft_putstr_fd.c\
 				ft_putendl_fd.c\
 				ft_putnbr_fd.c\
+				ft_isupper.c\
+				ft_islower.c\
+				ft_lstnew.c\
+				ft_lstdel.c\
+				ft_lstdelone.c\
+				ft_lstadd.c\
+				ft_lstiter.c\
+				ft_lstmap.c\
 OBJ			= $(FILES:%.c=%.o)
 
 FILES2		= ft_memset.c \
@@ -117,16 +125,20 @@ FILES2		= ft_memset.c \
 				ft_putchar_fd.c\
 				ft_putstr_fd.c\
 				ft_putendl_fd.c\
-				ft_putnbr_fd.c
+				ft_putnbr_fd.c\
+				ft_isupper.c\
+				ft_islower.c\
+				ft_lstnew.c\
+				ft_lstdelone.c\
+				ft_lstdel.c\
+				ft_lstadd.c\
+				ft_lstiter.c\
+				ft_lstmap.c
 
 all: $(NAME)
 
 so:
 	gcc -shared -o libft.so -fPIC $(FILES2)
-
-copy:
-	cp -f libft/*.c .
-	cp -f PATR2/*.c .
 
 # This won't run if the .o files don't exist or are not modified
 $(NAME): $(OBJ)
