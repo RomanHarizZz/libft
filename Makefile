@@ -1,14 +1,14 @@
-# **************************************************************************** #
+#******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jrameau <jrameau@student.42.us.org>        +#+  +:+       +#+         #
+#    By: hstolten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/09/21 14:58:27 by jrameau           #+#    #+#              #
-#    Updated: 2017/04/24 03:49:23 by jrameau          ###   ########.fr        #
+#    Created: 2018/12/11 16:46:20 by hstolten          #+#    #+#              #
+#    Updated: 2018/12/15 17:51:55 by hstolten         ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
+#******************************************************************************#
 
 NAME		= libft.a
 CFLAGS		= -Wall -Werror -Wextra -I. -c
@@ -72,6 +72,16 @@ FILES		= ft_memset.c \
 				ft_lstadd.c\
 				ft_lstiter.c\
 				ft_lstmap.c\
+				ft_sqrt.c\
+				ft_factorial.c\
+				ft_putnbr_base.c\
+				ft_print_params.c\
+				ft_range.c\
+				ft_btree_create_node.c\
+				ft_btree_apply_infix.c\
+				ft_btree_apply_suffix.c\
+				ft_btree_insert_data.c\
+				ft_btree_search_item.c
 OBJ			= $(FILES:%.c=%.o)
 
 FILES2		= ft_memset.c \
@@ -133,31 +143,34 @@ FILES2		= ft_memset.c \
 				ft_lstdel.c\
 				ft_lstadd.c\
 				ft_lstiter.c\
-				ft_lstmap.c
+				ft_lstmap.c\
+                ft_sqrt.c\
+                ft_factorial.c\
+				ft_putnbr_base.c\
+				ft_print_params.c\
+				ft_range.c\
+				ft_btree_create_node.c\
+				ft_btree_apply_infix.c\
+				ft_btree_apply_suffix.c\
+				ft_btree_insert_data.c\
+				ft_btree_search_item.c
 
 all: $(NAME)
 
 so:
 	gcc -shared -o libft.so -fPIC $(FILES2)
 
-# This won't run if the .o files don't exist or are not modified
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
-
-
-# This won't run if the source files don't exist or are not modified
-$(OBJ): $(FILES)
+$(NAME):
 	gcc $(CFLAGS) $(FILES)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 clean:
 	rm -f $(OBJ)
-	rm -f $(FILES) # comment this line if you don't want it to remove the source files from the root
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-# I use .PHONY to make sure that gnu make will still run even if files called
-# clean / fclean / all and re already exist in the directory
 .PHONY: clean fclean all re

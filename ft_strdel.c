@@ -6,7 +6,7 @@
 /*   By: hstolten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 10:33:42 by hstolten          #+#    #+#             */
-/*   Updated: 2018/11/20 10:40:26 by hstolten         ###   ########.fr       */
+/*   Updated: 2018/12/11 17:30:44 by hstolten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_strdel(char **str)
 {
-	if(!str || !*str)
+	if (!str || !*str)
 		return ;
 	free(*str);
 	*str = 0;

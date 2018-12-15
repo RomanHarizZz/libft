@@ -6,7 +6,7 @@
 /*   By: hstolten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 08:35:39 by hstolten          #+#    #+#             */
-/*   Updated: 2018/11/20 08:44:39 by hstolten         ###   ########.fr       */
+/*   Updated: 2018/12/11 17:19:51 by hstolten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*arr;
 	unsigned char	o;
-	int	i;
+	int				i;
 
 	i = 0;
 	o = (unsigned char)c;

@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstolten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:38:16 by hstolten          #+#    #+#             */
-/*   Updated: 2018/12/11 18:05:20 by hstolten         ###   ########.fr       */
+/*   Created: 2018/09/26 21:19:18 by hstolten          #+#    #+#             */
+/*   Updated: 2018/09/27 19:43:40 by hstolten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int		*ft_range(int min, int max)
 {
-	char	*s3;
-	size_t	i;
-	size_t	j;
-	size_t	s1_len;
-	size_t	s2_len;
+	int *a;
+	int i;
 
-	i = -1;
-	j = -1;
-	if (!s1 || !s2)
-		return (NULL);
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	s3 = ft_strnew(s1_len + s2_len);
-	if (!s3)
-		return (NULL);
-	while (++i < s1_len)
-		*(s3 + i) = *(s1 + i);
-	while (++j < s2_len)
+	if (min >= max)
+		return (0);
+	a = malloc((max - min) * sizeof(int));
+	if (a == NULL)
+		return (a);
+	i = 0;
+	while (min < max)
 	{
-		*(s3 + i) = *(s2 + j);
-		i++;
+		a[i++] = min;
+		++min;
 	}
-	return (s3);
+	return (a);
 }

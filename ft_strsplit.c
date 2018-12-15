@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hstolten <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/11 18:06:24 by hstolten          #+#    #+#             */
+/*   Updated: 2018/12/14 18:57:37 by hstolten         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_countwords(char const *str, char c)
+static int		words_n(char const *str, char c)
 {
 	int count;
 	int	i;
@@ -19,7 +30,8 @@ int		ft_countwords(char const *str, char c)
 	}
 	return (count);
 }
-static int		get_word_len(char const *str, char c)
+
+static int		len_word(char const *str, char c)
 {
 	int	i;
 	int	len;
@@ -43,15 +55,17 @@ char			**ft_strsplit(char const *s, char c)
 	int		k;
 	char	**str2;
 
-	if (!s || !(str2 = (char **)malloc(sizeof(*str2) *
-		(ft_countwords(s, c) + 1))))
+	if (!s)
+		return (NULL);
+	str2 = (char **)malloc(sizeof(*str2) * (words_n(s, c) + 1));
+	if (!str2)
 		return (NULL);
 	i = -1;
 	j = 0;
-	while (++i < ft_countwords(s, c))
+	while (++i < words_n(s, c))
 	{
 		k = 0;
-		if (!(str2[i] = ft_strnew(get_word_len(&s[j], c) + 1)))
+		if (!(str2[i] = ft_strnew(len_word(&s[j], c) + 1)))
 			str2[i] = NULL;
 		while (s[j] == c)
 			j++;

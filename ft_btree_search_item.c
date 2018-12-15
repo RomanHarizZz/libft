@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   btree_search_item.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstolten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 16:38:16 by hstolten          #+#    #+#             */
-/*   Updated: 2018/12/11 18:05:20 by hstolten         ###   ########.fr       */
+/*   Created: 2018/10/05 21:05:27 by hstolten          #+#    #+#             */
+/*   Updated: 2018/10/05 22:51:45 by hstolten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	*ft_btree_search_item(t_btree *root, void *data_ref, \
+							int (*cmpf)(void *, void *))
 {
-	char	*s3;
-	size_t	i;
-	size_t	j;
-	size_t	s1_len;
-	size_t	s2_len;
-
-	i = -1;
-	j = -1;
-	if (!s1 || !s2)
-		return (NULL);
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	s3 = ft_strnew(s1_len + s2_len);
-	if (!s3)
-		return (NULL);
-	while (++i < s1_len)
-		*(s3 + i) = *(s1 + i);
-	while (++j < s2_len)
-	{
-		*(s3 + i) = *(s2 + j);
-		i++;
-	}
-	return (s3);
+	if (!root || !data_ref)
+		return (0);
+	else if (cmpf(data_ref, root->item) == 0)
+		return (root->item);
+	else if (root->left)
+		return (ft_btree_search_item(root->left, data_ref, cmpf));
+	else if (root->right)
+		return (ft_btree_search_item(root->right, data_ref, cmpf));
+	return (0);
 }

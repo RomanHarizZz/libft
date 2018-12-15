@@ -6,13 +6,13 @@
 /*   By: hstolten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 18:07:31 by hstolten          #+#    #+#             */
-/*   Updated: 2018/11/23 18:11:33 by hstolten         ###   ########.fr       */
+/*   Updated: 2018/12/12 20:04:11 by hstolten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static 	size_t	int_len(int n)
+static size_t	int_len(int n)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@ static 	size_t	int_len(int n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char			*str;
 	size_t			str_len;

@@ -6,15 +6,15 @@
 /*   By: hstolten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 06:51:12 by hstolten          #+#    #+#             */
-/*   Updated: 2018/11/20 06:51:17 by hstolten         ###   ########.fr       */
+/*   Updated: 2018/12/11 17:22:52 by hstolten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest,const char *src)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (src[i] != '\0')
